@@ -36,22 +36,23 @@ namespace ConsoleApplication2
                 if (selected == "1")
                 {
                     Console.WriteLine("Please enter a string");
-                    qItems.Enqueue(Console.ReadLine());
+                    qItems.Enqueue(Console.ReadLine()); //Add item to the queue
                 }
 
                 else if (selected == "2")
                 {
-                    qItems.Clear();
-                    int counter = 1;
+                    qItems.Clear(); //Clear the queue
+                    int counter = 1; 
                     while (qItems.Count() <= 2000)
                     {
-                        qItems.Enqueue("New Entry" + counter);
-                        counter++;
+                        qItems.Enqueue("New Entry" + counter); //Add item to the queue
+                        counter++; //count how many entries have been made
                     }
                 }
 
                 else if (selected == "3")
                 {
+                    //Display all items
                     foreach (string item in qItems)
                     {
                         Console.WriteLine(item);
@@ -68,6 +69,7 @@ namespace ConsoleApplication2
 
                 else if (selected == "5")
                 {
+                    //Clear the queue
                     qItems.Clear();
                     Console.WriteLine("All items removed");
                 }
@@ -78,11 +80,14 @@ namespace ConsoleApplication2
                     string input = "";
                     Console.Write("Enter Search field: ");
                     input = Console.ReadLine();
+                    //Start the timer
                     sw.Start();
                     if (qItems.Contains(input))
                     {
+                        //Stop the timer
                         sw.Stop();
                         Console.WriteLine("Found It! Time to find: " + sw.Elapsed);
+                        //Reset the timer
                         sw.Reset();
                     }
                     else
